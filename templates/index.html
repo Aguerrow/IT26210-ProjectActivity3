@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IP Information</title>
+  </head>
+  <body>
+    <h1>IP Information</h1>
+    <ul>
+      <li><strong>Public IP Address:</strong> {{ ip_info.ip }}</li>
+      <li><strong>Network:</strong> {{ ip_info.network }}</li>
+      <li><strong>Version:</strong> {{ ip_info.version }}</li>
+      <li><strong>City:</strong> {{ ip_info.city }}</li>
+      <li><strong>Region:</strong> {{ ip_info.region }}</li>
+      <li><strong>Region Code:</strong> {{ ip_info.region_code }}</li>
+      <li><strong>Country:</strong> {{ ip_info.country }}</li>
+      <li><strong>Country Name:</strong> {{ ip_info.country_name }}</li>
+      <li><strong>Country Code:</strong> {{ ip_info.country_code }}</li>
+      <li>
+        <strong>Country Code ISO3:</strong> {{ ip_info.country_code_iso3 }}
+      </li>
+      <li><strong>Country Capital:</strong> {{ ip_info.country_capital }}</li>
+      <li><strong>Country TLD:</strong> {{ ip_info.country_tld }}</li>
+      <li><strong>Continent Code:</strong> {{ ip_info.continent_code }}</li>
+      <li><strong>In EU:</strong> {{ ip_info.in_eu }}</li>
+      <li><strong>Postal Code:</strong> {{ ip_info.postal }}</li>
+      <li><strong>Latitude:</strong> {{ ip_info.latitude }}</li>
+      <li><strong>Longitude:</strong> {{ ip_info.longitude }}</li>
+      <li><strong>Timezone:</strong> {{ ip_info.timezone }}</li>
+      <li><strong>UTC Offset:</strong> {{ ip_info.utc_offset }}</li>
+      <li>
+        <strong>Country Calling Code:</strong> {{ ip_info.country_calling_code
+        }}
+      </li>
+      <li><strong>Currency:</strong> {{ ip_info.currency }}</li>
+      <li><strong>Currency Name:</strong> {{ ip_info.currency_name }}</li>
+      <li><strong>Languages:</strong> {{ ip_info.languages }}</li>
+      <li><strong>Country Area:</strong> {{ ip_info.country_area }}</li>
+      <li>
+        <strong>Country Population:</strong> {{ ip_info.country_population }}
+      </li>
+      <li><strong>ASN:</strong> {{ ip_info.asn }}</li>
+      <li><strong>Organization:</strong> {{ ip_info.org }}</li>
+    </ul>
+  </body>
+</html>
