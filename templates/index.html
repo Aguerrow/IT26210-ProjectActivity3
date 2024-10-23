@@ -4,44 +4,113 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IP Information</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>IP Information</h1>
-    <ul>
-      <li><strong>Public IP Address:</strong> {{ ip_info.ip }}</li>
-      <li><strong>Network:</strong> {{ ip_info.network }}</li>
-      <li><strong>Version:</strong> {{ ip_info.version }}</li>
-      <li><strong>City:</strong> {{ ip_info.city }}</li>
-      <li><strong>Region:</strong> {{ ip_info.region }}</li>
-      <li><strong>Region Code:</strong> {{ ip_info.region_code }}</li>
-      <li><strong>Country:</strong> {{ ip_info.country }}</li>
-      <li><strong>Country Name:</strong> {{ ip_info.country_name }}</li>
-      <li><strong>Country Code:</strong> {{ ip_info.country_code }}</li>
-      <li>
-        <strong>Country Code ISO3:</strong> {{ ip_info.country_code_iso3 }}
-      </li>
-      <li><strong>Country Capital:</strong> {{ ip_info.country_capital }}</li>
-      <li><strong>Country TLD:</strong> {{ ip_info.country_tld }}</li>
-      <li><strong>Continent Code:</strong> {{ ip_info.continent_code }}</li>
-      <li><strong>In EU:</strong> {{ ip_info.in_eu }}</li>
-      <li><strong>Postal Code:</strong> {{ ip_info.postal }}</li>
-      <li><strong>Latitude:</strong> {{ ip_info.latitude }}</li>
-      <li><strong>Longitude:</strong> {{ ip_info.longitude }}</li>
-      <li><strong>Timezone:</strong> {{ ip_info.timezone }}</li>
-      <li><strong>UTC Offset:</strong> {{ ip_info.utc_offset }}</li>
-      <li>
-        <strong>Country Calling Code:</strong> {{ ip_info.country_calling_code
-        }}
-      </li>
-      <li><strong>Currency:</strong> {{ ip_info.currency }}</li>
-      <li><strong>Currency Name:</strong> {{ ip_info.currency_name }}</li>
-      <li><strong>Languages:</strong> {{ ip_info.languages }}</li>
-      <li><strong>Country Area:</strong> {{ ip_info.country_area }}</li>
-      <li>
-        <strong>Country Population:</strong> {{ ip_info.country_population }}
-      </li>
-      <li><strong>ASN:</strong> {{ ip_info.asn }}</li>
-      <li><strong>Organization:</strong> {{ ip_info.org }}</li>
-    </ul>
+    <div class="container mt-5">
+      <h1 class="text-center">IP Information</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="list-group">
+            <div class="list-group-item">
+              <strong>Public IP Address:</strong> {{ ip_info.ip }}
+            </div>
+            <div class="list-group-item">
+              <strong>Network:</strong> {{ ip_info.network }}
+            </div>
+            <div class="list-group-item">
+              <strong>Version:</strong> {{ ip_info.version }}
+            </div>
+            <div class="list-group-item">
+              <strong>City:</strong> {{ ip_info.city }}
+            </div>
+            <div class="list-group-item">
+              <strong>Region:</strong> {{ ip_info.region }}
+            </div>
+            <div class="list-group-item">
+              <strong>Region Code:</strong> {{ ip_info.region_code }}
+            </div>
+            <div class="list-group-item">
+              <strong>Country:</strong> {{ ip_info.country }}
+            </div>
+            <div class="list-group-item">
+              <strong>Country Name:</strong> {{ ip_info.country_name }}
+            </div>
+            <div class="list-group-item">
+              <strong>Country Code:</strong> {{ ip_info.country_code }}
+            </div>
+            <div class="list-group-item">
+              <strong>Country Code ISO3:</strong> {{ ip_info.country_code_iso3
+              }}
+            </div>
+            <div class="list-group-item">
+              <strong>Country Capital:</strong> {{ ip_info.country_capital }}
+            </div>
+            <div class="list-group-item">
+              <strong>Country TLD:</strong> {{ ip_info.country_tld }}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="list-group">
+            <div class="list-group-item">
+              <strong>Continent Code:</strong> {{ ip_info.continent_code }}
+            </div>
+            <div class="list-group-item">
+              <strong>In EU:</strong> {{ ip_info.in_eu }}
+            </div>
+            <div class="list-group-item">
+              <strong>Postal Code:</strong> {{ ip_info.postal }}
+            </div>
+            <div class="list-group-item">
+              <strong>Latitude:</strong> {{ ip_info.latitude }}
+            </div>
+            <div class="list-group-item">
+              <strong>Longitude:</strong> {{ ip_info.longitude }}
+            </div>
+            <div class="list-group-item">
+              <strong>Timezone:</strong> {{ ip_info.timezone }}
+            </div>
+            <div class="list-group-item">
+              <strong>UTC Offset:</strong> {{ ip_info.utc_offset }}
+            </div>
+            <div class="list-group-item">
+              <strong>Country Calling Code:</strong> {{
+              ip_info.country_calling_code }}
+            </div>
+            <div class="list-group-item">
+              <strong>Currency:</strong> {{ ip_info.currency }}
+            </div>
+            <div class="list-group-item">
+              <strong>Currency Name:</strong> {{ ip_info.currency_name }}
+            </div>
+            <div class="list-group-item text-wrap text-break">
+              <strong>Languages:</strong> {{ ip_info.languages }}
+            </div>
+            <div class="list-group-item">
+              <strong>Country Area:</strong> {{ ip_info.country_area }}
+            </div>
+            <div class="list-group-item">
+              <strong>Country Population:</strong> {{ ip_info.country_population
+              }}
+            </div>
+            <div class="list-group-item">
+              <strong>ASN:</strong> {{ ip_info.asn }}
+            </div>
+            <div class="list-group-item">
+              <strong>Organization:</strong> {{ ip_info.org }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>
