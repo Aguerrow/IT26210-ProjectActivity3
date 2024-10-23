@@ -1,0 +1,106 @@
+/* Default Light Mode Styles */
+body.light-mode {
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+    color: black;
+}
+
+body.light-mode .list-group-item {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: linear-gradient(to right, #2c2c2c, #343a40);
+    color: white;
+}
+
+body.dark-mode .list-group-item {
+    background-color: #454d55;
+    border-color: #565d64;
+}
+
+/* Add a transition effect to the body for smooth mode switching */
+body {
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Styling the Dark Mode Icon */
+#toggle-dark-mode {
+    cursor: pointer;
+    color: black;
+    transition: color 0.3s ease;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+body.dark-mode #toggle-dark-mode {
+    color: white;
+}
+
+/* Style for list-group items */
+.list-group-item {
+    margin-bottom: 10px; /* Space between items */
+    padding: 15px; /* Increased padding for better spacing */
+    border-radius: 5px; /* Rounded corners */
+    overflow-wrap: break-word; /* Prevent overlap by breaking long words */
+}
+
+/* Style for the comparison section */
+.comparison-container {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode background for comparison section */
+body.dark-mode .comparison-container {
+    background-color: #3a3a3a; /* Darker gray for contrast */
+    color: white; /* White text for readability */
+}
+
+/* Styling input boxes */
+input[type="text"] {
+    width: 100%; /* Full width */
+    padding: 10px;
+    margin-bottom: 10px; /* Space below input */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ced4da; /* Light border */
+}
+
+/* Style for the compare button */
+.btn-compare {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-compare:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Fix for language item overlap */
+.text-wrap {
+    word-wrap: break-word; /* Prevent overlap by breaking long words */
+}
+
+/* Additional styling for the comparison results */
+#comparison-results {
+    margin-top: 15px;
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for results */
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Dark mode for comparison results */
+body.dark-mode #comparison-results {
+    background-color: #444444; /* Dark background for results in dark mode */
+    color: white; /* White text for readability */
+}

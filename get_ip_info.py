@@ -7,6 +7,7 @@ def display_ip_info():
     ip_info = response.json()
 
     print("Public IP Address: {}".format(ip_info['ip']))
+    print("IPv6 Address: {}".format(ip_info['ipv6']))
     print("Network: {}".format(ip_info['network']))
     print("Version: {}".format(ip_info['version']))
     print("City: {}".format(ip_info['city']))
