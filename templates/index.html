@@ -1,213 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IP Information</title>
+
     <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Link to external stylesheet -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-</head>
-<body class="light-mode">
-    <div class="container mt-5">
-        <h1 class="text-center">IP Information</h1>
-
-        <!-- Dark Mode Toggle Icon -->
-        <div class="text-center mb-4">
-            <i id="toggle-dark-mode" class="fas fa-moon fa-2x"></i>
-        </div>
-
-        <!-- IP Information Box -->
-        <div class="info-box p-4 mb-5">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="list-group">
-                        <div class="list-group-item">
-                            <strong>Public IP Address:</strong> {{ ip_info.ip }}
-                        </div>
-                        <div class="list-group-item">
-                            <strong>Network:</strong> {{ ip_info.network }}
-                        </div>
-                        <div class="list-group-item">
-                          <strong>IPv6 Address:</strong> {{ ip_info.ipv6 }}
-                      </div>
-                        <div class="list-group-item">
-                            <strong>Version:</strong> {{ ip_info.version }}
-                        </div>
-                        <div class="list-group-item">
-                            <strong>City:</strong> {{ ip_info.city }}
-                        </div>
-                        <div class="list-group-item">
-                            <strong>Region:</strong> {{ ip_info.region }}
-                        </div>
-                        <div class="list-group-item">
-                            <strong>Region Code:</strong> {{ ip_info.region_code }}
-                        </div>
-                        <div class="list-group-item">
-                            <strong>Country:</strong> {{ ip_info.country }}
-                        </div>
-                        <div class="list-group-item">
-                            <strong>Country Name:</strong> {{ ip_info.country_name }}
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="list-group">
-                        <div class="list-group-item">
-                            <strong>Continent Code:</strong> {{ ip_info.continent_code }}
-                        </div>
-                        <div class="list-group-item">
-                            <strong>In EU:</strong> {{ ip_info.in_eu }}
-                        </div>
-                        <div class="list-group-item">
-                            <strong>Latitude:</strong> {{ ip_info.latitude }}
-                        </div>
-                        <div class="list-group-item">
-                            <strong>Longitude:</strong> {{ ip_info.longitude }}
-                        </div>
-                        <div class="list-group-item">
-                            <strong>Timezone:</strong> {{ ip_info.timezone }}
-                        </div>
-                        <div class="list-group-item">
-                            <strong>Currency:</strong> {{ ip_info.currency }}
-                        </div>
-                        <div class="list-group-item">
-                            <strong>Languages:</strong> {{ ip_info.languages }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- IP Comparison Form -->
-        <div class="info-box p-4">
-            <h3>Compare IP Addresses</h3>
-            <form id="compare-ip-form">
-                <div class="form-group">
-                    <input type="text" id="ip1" class="form-control mb-2" placeholder="Enter first IP address" required />
-                    <input type="text" id="ip2" class="form-control mb-2" placeholder="Enter second IP address" required />
-                    <button type="submit" class="btn btn-primary btn-sm">Compare</button>
-                </div>
-            </form>
-            <div class="row" id="comparison-results"></div>
-        </div>
-    </div>
-
     <link
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
     />
+
+    <!-- External Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
-  <body>
+  <body class="light-mode">
     <div class="container mt-5">
       <h1 class="text-center">IP Information</h1>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="list-group">
-            <div class="list-group-item">
-              <strong>Public IP Address:</strong> {{ ip_info.ip }}
-            </div>
-            <div class="list-group-item">
-              <strong>Network:</strong> {{ ip_info.network }}
-            </div>
-            <div class="list-group-item">
-              <strong>Version:</strong> {{ ip_info.version }}
-            </div>
-            <div class="list-group-item">
-              <strong>City:</strong> {{ ip_info.city }}
-            </div>
-            <div class="list-group-item">
-              <strong>Region:</strong> {{ ip_info.region }}
-            </div>
-            <div class="list-group-item">
-              <strong>Region Code:</strong> {{ ip_info.region_code }}
-            </div>
-            <div class="list-group-item">
-              <strong>Country:</strong> {{ ip_info.country }}
-            </div>
-            <div class="list-group-item">
-              <strong>Country Name:</strong> {{ ip_info.country_name }}
-            </div>
-            <div class="list-group-item">
-              <strong>Country Code:</strong> {{ ip_info.country_code }}
-            </div>
-            <div class="list-group-item">
-              <strong>Country Code ISO3:</strong> {{ ip_info.country_code_iso3
-              }}
-            </div>
-            <div class="list-group-item">
-              <strong>Country Capital:</strong> {{ ip_info.country_capital }}
-            </div>
-            <div class="list-group-item">
-              <strong>Country TLD:</strong> {{ ip_info.country_tld }}
+
+      <!-- Dark Mode Toggle Icon -->
+      <div class="text-center mb-4">
+        <i id="toggle-dark-mode" class="fas fa-moon fa-2x"></i>
+      </div>
+
+      <!-- IP Information Box -->
+      <div class="info-box p-4 mb-5">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="list-group">
+              <div class="list-group-item">
+                <strong>IPv4 Address:</strong> {{ ip_info.ipv4 }}
+              </div>
+              <div class="list-group-item">
+                <strong>IPv6 Address:</strong> {{ ip_info.ip }}
+              </div>
+              <div class="list-group-item">
+                <strong>Network:</strong> {{ ip_info.network }}
+              </div>
+              <div class="list-group-item">
+                <strong>ASN:</strong> {{ ip_info.asn }}
+              </div>
+              <div class="list-group-item">
+                <strong>Lat/Long:</strong> {{ ip_info.latitude }}, {{
+                ip_info.longitude }}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-6">
-          <div class="list-group">
-            <div class="list-group-item">
-              <strong>Continent Code:</strong> {{ ip_info.continent_code }}
-            </div>
-            <div class="list-group-item">
-              <strong>In EU:</strong> {{ ip_info.in_eu }}
-            </div>
-            <div class="list-group-item">
-              <strong>Postal Code:</strong> {{ ip_info.postal }}
-            </div>
-            <div class="list-group-item">
-              <strong>Latitude:</strong> {{ ip_info.latitude }}
-            </div>
-            <div class="list-group-item">
-              <strong>Longitude:</strong> {{ ip_info.longitude }}
-            </div>
-            <div class="list-group-item">
-              <strong>Timezone:</strong> {{ ip_info.timezone }}
-            </div>
-            <div class="list-group-item">
-              <strong>UTC Offset:</strong> {{ ip_info.utc_offset }}
-            </div>
-            <div class="list-group-item">
-              <strong>Country Calling Code:</strong> {{
-              ip_info.country_calling_code }}
-            </div>
-            <div class="list-group-item">
-              <strong>Currency:</strong> {{ ip_info.currency }}
-            </div>
-            <div class="list-group-item">
-              <strong>Currency Name:</strong> {{ ip_info.currency_name }}
-            </div>
-            <div class="list-group-item text-wrap text-break">
-              <strong>Languages:</strong> {{ ip_info.languages }}
-            </div>
-            <div class="list-group-item">
-              <strong>Country Area:</strong> {{ ip_info.country_area }}
-            </div>
-            <div class="list-group-item">
-              <strong>Country Population:</strong> {{ ip_info.country_population
-              }}
-            </div>
-            <div class="list-group-item">
-              <strong>ASN:</strong> {{ ip_info.asn }}
-            </div>
-            <div class="list-group-item">
-              <strong>Organization:</strong> {{ ip_info.org }}
+
+          <div class="col-md-6">
+            <div class="list-group">
+              <div class="list-group-item">
+                <strong>City:</strong> {{ ip_info.city }}
+              </div>
+              <div class="list-group-item">
+                <strong>Region:</strong> {{ ip_info.region }}
+              </div>
+              <div class="list-group-item">
+                <strong>Country:</strong> {{ ip_info.country_name }}
+              </div>
+              <div class="list-group-item">
+                <strong>Timezone:</strong> {{ ip_info.timezone }}
+              </div>
+              <div class="list-group-item">
+                <strong>ISP:</strong> {{ ip_info.org }}
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- IP Comparison Form -->
+      <div class="info-box p-4">
+        <h3>Compare IP Addresses</h3>
+        <form id="compare-ip-form">
+          <div class="form-group">
+            <input
+              type="text"
+              id="ip1"
+              class="form-control mb-2"
+              placeholder="Enter first IP address"
+              required
+            />
+            <input
+              type="text"
+              id="ip2"
+              class="form-control mb-2"
+              placeholder="Enter second IP address"
+              required
+            />
+            <button type="submit" class="btn btn-primary btn-sm">
+              Compare
+            </button>
+          </div>
+        </form>
+        <div class="row" id="comparison-results"></div>
+      </div>
     </div>
-    <!-- Bootstrap JS and dependencies -->
+
+    <!-- External JavaScript Files -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- Link to external JavaScript file -->
     <script src="{{ url_for('static', filename='js/darkmode.js') }}"></script>
     <script src="{{ url_for('static', filename='js/ipComparison.js') }}"></script>
-
   </body>
 </html>
