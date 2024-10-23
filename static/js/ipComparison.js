@@ -1,38 +1,36 @@
-document.getElementById('compare-ip-form').addEventListener('submit', function (event) {
+document
+  .getElementById("compare-ip-form")
+  .addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent form submission
 
-    // Get the IP addresses from the input fields
-    const ip1 = document.getElementById('ip1').value;
-    const ip2 = document.getElementById('ip2').value;
+    const ip1 = document.getElementById("ip1").value;
+    const ip2 = document.getElementById("ip2").value;
 
-    // Fetch IP information
-    fetchIpInfo(ip1, 'ip1');
-    fetchIpInfo(ip2, 'ip2');
-});
+    fetchIpInfo(ip1, "ip1");
+    fetchIpInfo(ip2, "ip2");
+  });
 
 function fetchIpInfo(ip, ipLabel) {
-    fetch(`https://ipapi.co/${ip}/json/`)
-        .then(response => {
-            if (!response.ok) throw new Error('IP not found');
-            return response.json();
-        })
-        .then(data => displayIpInfo(data, ipLabel))
-        .catch(error => alert(error.message));
+  fetch(`https://ipapi.co/${ip}/json/`)
+    .then((response) => {
+      if (!response.ok) throw new Error("IP not found");
+      return response.json();
+    })
+    .then((data) => displayIpInfo(data, ipLabel))
+    .catch((error) => alert(error.message));
 }
 
 function displayIpInfo(data, ipLabel) {
-    const resultsDiv = document.getElementById('comparison-results');
+  const resultsDiv = document.getElementById("comparison-results");
+  const listGroup = document.createElement("div");
+  listGroup.className = "col-md-6 list-group";
 
-    // Create a new list group item for the IP information
-    const listGroup = document.createElement('div');
-    listGroup.className = 'col-md-6 list-group';
-
-    const ipInfoHtml = `
+  const ipInfoHtml = `
     <div class="list-group-item">
         <strong>Public IPv4 Address:</strong> ${data.ip}
     </div>
     <div class="list-group-item">
-        <strong>Public IPv6 Address:</strong> ${data.ipv6}
+        <strong>IP Version:</strong> ${data.version}
     </div>
     <div class="list-group-item">
         <strong>ISP:</strong> ${data.org}
@@ -51,6 +49,6 @@ function displayIpInfo(data, ipLabel) {
     </div>
 `;
 
-    listGroup.innerHTML = ipInfoHtml;
-    resultsDiv.appendChild(listGroup);
+  listGroup.innerHTML = ipInfoHtml;
+  resultsDiv.appendChild(listGroup);
 }
