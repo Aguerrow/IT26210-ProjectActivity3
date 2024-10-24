@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IP Information</title>
 
-    <!-- Bootstrap CSS -->
+
+    <!-- Bootstrap -->
     <link
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
@@ -38,10 +39,24 @@
           <div class="col-md-6">
             <div class="list-group">
               <div class="list-group-item">
-                <strong>IPv4 Address:</strong> {{ ip_info.ipv4 }}
+                <strong>IPv4 Address:</strong>
+                <span id="ipv4-address">{{ ip_info.ipv4 }}</span>
+                <button
+                  class="btn btn-outline-secondary btn-sm ml-2"
+                  onclick="copyToClipboard('ipv4-address', this)"
+                >
+                  Copy
+                </button>
               </div>
               <div class="list-group-item">
-                <strong>IPv6 Address:</strong> {{ ip_info.ip }}
+                <strong>IPv6 Address:</strong>
+                <span id="ipv6-address">{{ ip_info.ip }}</span>
+                <button
+                  class="btn btn-outline-secondary btn-sm ml-2"
+                  onclick="copyToClipboard('ipv6-address', this)"
+                >
+                  Copy
+                </button>
               </div>
               <div class="list-group-item">
                 <strong>Network:</strong> {{ ip_info.network }}
@@ -112,5 +127,23 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="{{ url_for('static', filename='js/darkmode.js') }}"></script>
     <script src="{{ url_for('static', filename='js/ipComparison.js') }}"></script>
+
+    <!-- Copy to Clipboard -->
+    <script>
+      function copyToClipboard(elementId, button) {
+        const textToCopy = document.getElementById(elementId).textContent;
+        navigator.clipboard.writeText(textToCopy).then(
+          () => {
+            button.textContent = "Copied";
+            setTimeout(() => {
+              button.textContent = "Copy";
+            }, 2000);
+          },
+          (err) => {
+            console.error("Could not copy text: ", err);
+          }
+        );
+      }
+    </script>
   </body>
 </html>
